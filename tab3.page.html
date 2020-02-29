@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recipies</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="serchChanged($event)"></ion-searchbar>
+ 
+
+ 
+  <ion-list>
+ <!-- later will rout to this page [routerLink]="['/', 'results', item.title]" -->
+    <ion-item button *ngFor="let item of (results | async)" >
+        <!-- https://spoonacular.com/recipeImages/ -->
+      <!-- <img [src]="item.image" *ngIf="item.image != 'N/A'"> -->
+      <!-- <img [src]="item.baseUri+item.image"  > -->
+      <ion-label text-wrap>
+        <h3>{{ item.title }}</h3>
+        <p>Ready in: {{item.readyInMinutes}} Min.</p>
+        <p>Servings: {{item.servings}} </p>
+        <!-- {{ item.Year }} -->
+      </ion-label>
+ 
+
+    </ion-item>
+ 
+  </ion-list>
+ 
+</ion-content>
