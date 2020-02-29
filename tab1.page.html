@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-button (click)="presentAddNewPrompt();">
+              <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+    <ion-title>Groceries list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-item-sliding> -->
+    <ion-list *ngFor="let todo of todos">
+        <ion-item-sliding>
+        <ion-item>{{todo}}</ion-item>
+        <ion-item-options>
+            <ion-item-option color="danger" (click)="removeTodo(todo)">
+              <ion-icon slot="start" name="archive"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+</ion-content>
